@@ -67,6 +67,9 @@ export const config: VendureConfig = {
         },
         cookieOptions: {
             secret: process.env.COOKIE_SECRET,
+            ...(process.env.APP_ENV === "dev"
+              ? {}
+              : { domain: ".productshare.net", sameSite: "lax" })
         },
     },
     dbConnectionOptions: {
@@ -111,7 +114,7 @@ export const config: VendureConfig = {
             templatePath: path.join(__dirname, '../static/email/templates'),
             globalTemplateVars: {
                 fromAddress: process.env.EMAIL_FROM_ADDRESS || '"example" <noreply@example.com>',
-                verifyEmailAddressUrl: `${process.env.STOREFRONT_URL}/verify`,
+                verifyEmailAddressUrl: `${process.env.STOREFRONT_URL}/customer/verify`,
                 passwordResetUrl: `${process.env.STOREFRONT_URL}/password-reset`,
                 changeEmailAddressUrl: `${process.env.STOREFRONT_URL}/verify-email-address-change`
             },

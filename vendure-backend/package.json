@@ -8,6 +8,7 @@
     "dev": "concurrently npm:dev:*",
     "build": "tsc",
     "seed:once": "node ./dist/seed-once.js",
+    "seed:populate": "node ./dist/populate.js",
     "start:server": "node ./dist/index.js",
     "start:worker": "node ./dist/index-worker.js",
     "start": "concurrently npm:start:*"
