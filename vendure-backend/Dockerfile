@@ -11,4 +11,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["sh", "-c", "npm run seed:once && npm run start"]
+CMD ["sh", "-c", "npm run seed:once && npm run populate && npm run start"]
